@@ -27,14 +27,7 @@ public class MathsEnsemble<T> implements Ensemble<T> {
 
     @Override
     public boolean contient(T element) {
-        boolean ret = false;
-
-        for (T elt : this.ens) {
-            if (elt == element) {
-                ret = true;
-            }
-        }
-        return ret;
+        return this.ens.contains(element);
     }
 
 
