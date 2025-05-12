@@ -1,59 +1,23 @@
 package Ensemble;
 
+import java.util.Objects;
 import java.util.Set;
 
-interface Ensemble<T> extends Set {
+public interface Ensemble<T> {
 
-    static int cardinal() {
+    public abstract int cardinal();
 
-    }
+    public abstract boolean contient(T element);
 
-    public boolean contient(T element) {
+    public abstract Ensemble<T> union(Ensemble<T> autre);
 
-    }
+    public abstract Ensemble<T> intersection(Ensemble<T> autre);
 
-    Ensemble<T> union(Ensemble<T> autre) {
+    public abstract Ensemble<T> difference(Ensemble<T> autre);
 
-    }
+    // public abstract Ensemble<Couple<T, T>> produitCartesien(Ensemble<T> autre);
 
-    Ensemble<T> intersection(Ensemble<T> autre) {
+    public abstract Set<T> elements();
 
-    }
-    /*
-    Ensemble<T> difference(Ensemble<T> autre) {
-
-    }
-
-    Ensemble<T> difference(Ensemble<T> autre) {
-
-    }
-
-    Ensemble<Couple<T, T» produitCartesien(Ensemble<T> autre) {
-
-    }
-
-    Set<T> elements() {
-
-    }
-    */
-
-    /*
-    @Override
-    void equals() {
-
-    }
-
-    @Override
-    String toString() {
-
-    }
-
-    @Override
-    int hashCode() {
-
-    }
-
-     */
-
-
+    public abstract String toString();
 }
