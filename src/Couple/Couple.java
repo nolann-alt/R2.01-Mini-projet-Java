@@ -1,10 +1,16 @@
 package Couple;
 
-public interface Couple {
+public interface Couple<A, B> {
 
-    public void getPremier();
+    public abstract A getPremier();
 
-    public boolean equals();
+    public abstract B getDeuxieme();
 
-    public void hashCode();
+    public abstract boolean equals(MathsCouple<A, B> otherCpl);
+
+    @Override
+    public abstract String toString();
+
+    @Override
+    public abstract int hashCode();
 }
