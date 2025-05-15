@@ -11,6 +11,5 @@ public interface Couple<A, B> {
     @Override
     public abstract String toString();
 
-    @Override
-    public abstract int hashCode();
+    public abstract int hash();
 }

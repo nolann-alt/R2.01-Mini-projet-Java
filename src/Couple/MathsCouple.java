@@ -72,7 +72,7 @@ public class MathsCouple<A, B> implements Couple<A, B> {
      * @return le code de hachage du couple
      */
     @Override
-    public int hashCode() {
+    public int hash() {
         return this.hashCode();
     }
 }
