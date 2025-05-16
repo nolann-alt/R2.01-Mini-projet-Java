@@ -126,8 +126,8 @@ public class MathsEnsemble<T> implements Ensemble<T> {
 
     @Override
     /**
-     * This method returns a string representation of the set.
-     * @return a string representation of the set
+     * This method allow to the user to see the elements of the set as he wants
+     * @return a set of elements
      */
     public Set<T> elements() {
         LinkedHashSet<T> ret = new LinkedHashSet<>();

@@ -40,4 +40,47 @@ public class MathsRelation<T> {
         }
         return reflexif;
     }
+
+    public boolean estSymetrique() {
+        boolean symetrique = true;
+        T first;
+        T second;
+        for (Couple<T, T> cpl : this.relabi) {
+            first = cpl.getPremier();
+            second = cpl.getDeuxieme();
+            if ( ! this.relabi.contains(new MathsCouple<T, T>(second, first))) {
+                symetrique = false;
+            }
+        }
+        return symetrique;
+    }
+
+    public boolean estAntisymetrique() {
+        boolean antisymetrique = true;
+        T first;
+        T second;
+        for (Couple<T, T> cpl : this.relabi) {
+            first = cpl.getPremier();
+            second = cpl.getDeuxieme();
+            if (this.relabi.contains(new MathsCouple<T, T>(second, first)) && ! first.equals(second)) {
+                antisymetrique = false;
+            }
+        }
+        return antisymetrique;
+    }
+
+    public boolean estTransitive() {
+        boolean transitive = true;
+        T first;
+        T second;
+        T third;
+        for (Couple<T, T> cpl : this.relabi) {
+            first = cpl.getPremier();
+            second = cpl.getDeuxieme();
+            if (!this.relabi.contains(new MathsCouple<T, T>(first, third)) && !this.relabi.contains(new MathsCouple<T, T>(third, second))) {
+                transitive = false;
+            }
+        }
+        return transitive;
+    }
 }
