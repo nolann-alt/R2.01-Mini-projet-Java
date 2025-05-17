@@ -7,10 +7,21 @@ import Ensemble.Ensemble;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * Class offering basic operations on binary relations in maths
+ * @param <T> generic type
+ */
 public class MathsRelation<T> {
 
+    /**
+     * relabi --> the binary relation (final)
+     */
     private final Set<Couple<T, T>> relabi;
 
+    /**
+     * Constructor of MathsRelation
+     * @param uneRelation a set of pairs
+     */
     public MathsRelation(Ensemble<Couple<T, T>> uneRelation) {
         this.relabi = new LinkedHashSet<>();
 
@@ -25,6 +36,11 @@ public class MathsRelation<T> {
         }
     }
 
+    /**
+     * Checks if the binary relation is reflexive
+     * A relation R is reflexive if for all (a, b) in R, (a, a) and (b, b) is also in R
+     * @return true if reflexive, false otherwise
+     */
     public boolean estReflexive() {
         boolean reflexif = true;
         T first;
@@ -41,6 +57,11 @@ public class MathsRelation<T> {
         return reflexif;
     }
 
+    /**
+     * Checks if the binary relation is symmetric
+     * A relation R is symmetric if for all (a, b) in R, (b, a) is also in R
+     * @return true if symmetric, false otherwise
+     */
     public boolean estSymetrique() {
         boolean symetrique = true;
         T first;
@@ -97,7 +118,6 @@ public class MathsRelation<T> {
         }
         return transitive;
     }
-
 
     /**
      * Check if the relation contains a specific pair
