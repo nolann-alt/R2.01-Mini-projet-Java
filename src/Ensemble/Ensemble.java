@@ -16,7 +16,7 @@ public interface Ensemble<T> {
 
     public abstract Ensemble<T> difference(Ensemble<T> autre);
 
-    public abstract Ensemble<Couple<T, T>> produitCartesien(Ensemble<T> autre);
+    public abstract Ensemble<Couple<T>> produitCartesien(Ensemble<T> autre);
 
     public abstract Set<T> elements();
 

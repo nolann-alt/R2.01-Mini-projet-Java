@@ -16,17 +16,17 @@ public class MathsRelation<T> {
     /**
      * relabi --> the binary relation (final)
      */
-    private final Set<Couple<T, T>> relabi;
+    private final Set<Couple<T>> relabi;
 
     /**
      * Constructor of MathsRelation
      * @param uneRelation a set of pairs
      */
-    public MathsRelation(Ensemble<Couple<T, T>> uneRelation) {
+    public MathsRelation(Ensemble<Couple<T>> uneRelation) {
         this.relabi = new LinkedHashSet<>();
 
         try {
-            for (Couple<T, T> cpl : uneRelation.elements()) {
+            for (Couple<T> cpl : uneRelation.elements()) {
                 this.relabi.add(cpl);
             }
         } catch (NullPointerException err) {
@@ -45,12 +45,12 @@ public class MathsRelation<T> {
         boolean reflexif = true;
         T first;
         T second;
-        for (Couple<T, T> cpl : this.relabi) {
+        for (Couple<T> cpl : this.relabi) {
             first = cpl.getPremier();
             second = cpl.getDeuxieme();
-            if ( ! this.relabi.contains(new MathsCouple<>(first, first)) ) { // if the relation doesn't contains the couple (x, x) then it's not reflexive
+            if ( ! this.relabi.contains(new MathsCouple<T>(first, first)) ) { // if the relation doesn't contains the couple (x, x) then it's not reflexive
                 reflexif = false;
-            } else if ( ! this.relabi.contains(new MathsCouple<>(second, second)) ) {
+            } else if ( ! this.relabi.contains(new MathsCouple<T>(second, second)) ) {
                 reflexif = false;
             }
         }
@@ -66,10 +66,10 @@ public class MathsRelation<T> {
         boolean symetrique = true;
         T first;
         T second;
-        for (Couple<T, T> cpl : this.relabi) {
+        for (Couple<T> cpl : this.relabi) {
             first = cpl.getPremier();
             second = cpl.getDeuxieme();
-            if ( ! this.relabi.contains(new MathsCouple<T, T>(second, first))) {
+            if ( ! this.relabi.contains(new MathsCouple<T>(second, first))) {
                 symetrique = false;
             }
         }
@@ -85,10 +85,10 @@ public class MathsRelation<T> {
         boolean antisymetrique = true;
         T first;
         T second;
-        for (Couple<T, T> cpl : this.relabi) {
+        for (Couple<T> cpl : this.relabi) {
             first = cpl.getPremier();
             second = cpl.getDeuxieme();
-            if (this.relabi.contains(new MathsCouple<T, T>(second, first)) && ! first.equals(second)) {
+            if (this.relabi.contains(new MathsCouple<T>(second, first)) && ! first.equals(second)) {
                 antisymetrique = false;
             }
         }
@@ -103,13 +103,13 @@ public class MathsRelation<T> {
     public boolean estTransitive() {
         boolean transitive = true;
         T first, second, third; // a, b, c
-        for (Couple<T, T> cpl : this.relabi) { // couple (a, b)
+        for (Couple<T> cpl : this.relabi) { // couple (a, b)
             first = cpl.getPremier(); // a
             second = cpl.getDeuxieme(); // b
-            for (Couple<T, T> cpl1 : this.relabi) {
+            for (Couple<T> cpl1 : this.relabi) {
                 if ( cpl1.getPremier().equals(second) ) { // couple (b, x)
                     third = cpl1.getDeuxieme(); // c = x
-                    MathsCouple<T, T> coupleTransitif = new MathsCouple<>(first, third); // (a, x) --> chemin "raccourcis"
+                    MathsCouple<T> coupleTransitif = new MathsCouple<T>(first, third); // (a, x) --> chemin "raccourcis"
                     if ( ! this.relabi.contains(coupleTransitif) ) {
                         transitive = false;
                     }
@@ -124,7 +124,7 @@ public class MathsRelation<T> {
      * @param cpl the pair
      * @return true if the relation contains the pair in parameters
      */
-    public boolean contient(Couple<T, T> cpl) {
+    public boolean contient(Couple<T> cpl) {
         return this.relabi.contains(cpl);
     }
 
@@ -132,9 +132,9 @@ public class MathsRelation<T> {
      * Send to user the binary relation
      * @return a copy of the binary relation
      */
-    public Set<Couple<T, T>> elements() {
-        LinkedHashSet<Couple<T, T>> ret = new LinkedHashSet<>();
-        for (Couple<T, T> cpl : this.relabi) {
+    public Set<Couple<T>> elements() {
+        LinkedHashSet<Couple<T>> ret = new LinkedHashSet<>();
+        for (Couple<T> cpl : this.relabi) {
             ret.add(cpl);
         }
         return ret;

@@ -1,12 +1,12 @@
 package Couple;
 
-public interface Couple<A, B> {
+public interface Couple<T> {
 
-    public abstract A getPremier();
+    public abstract T getPremier();
 
-    public abstract B getDeuxieme();
+    public abstract T getDeuxieme();
 
-    public abstract boolean equals(MathsCouple<A, B> otherCpl);
+    public abstract boolean equals(MathsCouple<T> otherCpl);
 
     @Override
     public abstract String toString();

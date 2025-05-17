@@ -14,7 +14,7 @@ public interface Relation {
 
     public abstract boolean estTransitive();
 
-    public abstract <T> boolean contient(Couple<T, T> cpl);
+    public abstract <T> boolean contient(Couple<T> cpl);
 
-    public abstract <T> Set<Couple<T, T>> elements();
+    public abstract <T> Set<Couple<T>> elements();
 }

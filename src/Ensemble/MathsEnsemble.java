@@ -29,6 +29,8 @@ public class MathsEnsemble<T> implements Ensemble<T> {
             }
         } catch (NullPointerException err) {
             System.out.printf(err.getMessage());
+        } catch (IllegalArgumentException err) {
+            System.out.println(err.getMessage());
         }
     }
 
@@ -114,11 +116,11 @@ public class MathsEnsemble<T> implements Ensemble<T> {
      * @param autre the other set to product with
      * @return a new set that contains all the pairs of elements from both sets
      */
-    public Ensemble<Couple<T, T>> produitCartesien(Ensemble<T> autre) {
-        Set<Couple<T, T>> ret = new LinkedHashSet<>();
+    public Ensemble<Couple<T>> produitCartesien(Ensemble<T> autre) {
+        Set<Couple<T>> ret = new LinkedHashSet<>();
         for (T elt1 : this.elements()) {
             for (T elt2 : autre.elements()) {
-                ret.add(new MathsCouple<T, T>(elt1, elt2));
+                ret.add(new MathsCouple<T>(elt1, elt2));
             }
         }
         return new MathsEnsemble<>(ret);
@@ -134,6 +136,16 @@ public class MathsEnsemble<T> implements Ensemble<T> {
         for (T elt : this.ens) {
             ret.add(elt);
         }
+        return ret;
+    }
+
+    /**
+     * This method returns a string representation of the set
+     * @return the set as a string
+     */
+    @Override
+    public String toString() {
+        String ret = "L'ensemble est le suivant : " + this.ens;
         return ret;
     }
 }

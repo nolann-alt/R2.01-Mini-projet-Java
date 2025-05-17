@@ -2,25 +2,25 @@ package Couple;
 
 /**
  * Classe implémentant un couple d'objet
- * @param <A> premier objet
- * @param <B> second objet
+ * @param <T> premier objet
+ * @param <T> second objet
  */
-public class MathsCouple<A, B> implements Couple<A, B> {
+public class MathsCouple<T> implements Couple<T> {
 
     /**
      * attributs du couple (final car ils sont immuable --> on ne peut modifier un couple)
      */
-    private final A gauche;
-    private final B droite;
+    private final T gauche;
+    private final T droite;
 
     /**
-     * Constructeur de MathsCouple
+     * Constructor of MathsCouple
      * @param first premier membre
      * @param second second membre
      */
-    public MathsCouple(A first, B second) {
+    public MathsCouple(T first, T second) {
         if (first == null || second == null) {
-            throw new IllegalArgumentException("Erreur MathsCouple : les 2 membres du couple doivent être non null !");
+            throw new NullPointerException("Erreur MathsCouple : les 2 membres du couple doivent être non null !");
         } else {
             this.gauche = first;
             this.droite = second;
@@ -32,7 +32,7 @@ public class MathsCouple<A, B> implements Couple<A, B> {
      * @return le premier membre du couple
      */
     @Override
-    public A getPremier() {
+    public T getPremier() {
         return this.gauche;
     }
 
@@ -40,7 +40,7 @@ public class MathsCouple<A, B> implements Couple<A, B> {
      * Getter du deuxième membre
      * @return le second membre du couple
      */
-    public B getDeuxieme() {
+    public T getDeuxieme() {
         return this.droite;
     }
 
@@ -49,7 +49,7 @@ public class MathsCouple<A, B> implements Couple<A, B> {
      * @param otherCpl second couple à comparer
      * @return true si les 2 couples sont égaux, false sinon
      */
-    public boolean equals(MathsCouple<A, B> otherCpl) {
+    public boolean equals(MathsCouple<T> otherCpl) {
         boolean ret = false;
         if (this.hashCode() == otherCpl.hashCode()) {
             ret = true;
