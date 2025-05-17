@@ -1,14 +1,14 @@
 package Couple;
 
 /**
- * Classe implémentant un couple d'objet
- * @param <T> premier objet
- * @param <T> second objet
+ * Class which simulate the pair behaviors in mathematics
+ * @param <T> frist object
+ * @param <T> second object
  */
 public class MathsCouple<T> implements Couple<T> {
 
     /**
-     * attributs du couple (final car ils sont immuable --> on ne peut modifier un couple)
+     * members of the pair --> final because there are immutable
      */
     private final T gauche;
     private final T droite;
@@ -28,8 +28,8 @@ public class MathsCouple<T> implements Couple<T> {
     }
 
     /**
-     * Getter du premier membre
-     * @return le premier membre du couple
+     * Getter method of the first member
+     * @return first member of the pair
      */
     @Override
     public T getPremier() {
@@ -37,17 +37,17 @@ public class MathsCouple<T> implements Couple<T> {
     }
 
     /**
-     * Getter du deuxième membre
-     * @return le second membre du couple
+     * Getter method of the second member
+     * @return second member of the pair
      */
     public T getDeuxieme() {
         return this.droite;
     }
 
     /**
-     * Test l'égalité entre 2 couples
-     * @param otherCpl second couple à comparer
-     * @return true si les 2 couples sont égaux, false sinon
+     * Test of the equality of the twice
+     * @param otherCpl other pair to test
+     * @return true if the twice are the same, false otherwise
      */
     public boolean equals(MathsCouple<T> otherCpl) {
         boolean ret = false;
@@ -58,8 +58,8 @@ public class MathsCouple<T> implements Couple<T> {
     }
 
     /**
-     * Redéfinition de la méthode toString adaptée aux couples
-     * @return un affichage du couple
+     * Redefinition of the toString method for the pair
+     * @return a display of the pair
      */
     @Override
     public String toString() {
@@ -68,8 +68,8 @@ public class MathsCouple<T> implements Couple<T> {
     }
 
     /**
-     * Redéfinition de la méthode hashcode
-     * @return le code de hachage du couple
+     * Redefinition of the hashcode method
+     * @return hashcode of the pair
      */
     @Override
     public int hash() {
