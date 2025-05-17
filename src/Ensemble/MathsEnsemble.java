@@ -100,9 +100,9 @@ public class MathsEnsemble<T> implements Ensemble<T> {
     public Ensemble<T> difference(Ensemble<T> autre) {
         LinkedHashSet<T> leHset = new LinkedHashSet<>();
         MathsEnsemble<T> autreEnsemble = (MathsEnsemble<T>) autre;
-        for (T elt : autreEnsemble.ens) {
-            if (this.ens.contains(elt)) {
-                leHset.remove(elt);
+        for (T elt : this.ens) {
+            if ( ! autreEnsemble.contient(elt)) {
+                leHset.add(elt);
             }
         }
         Ensemble<T> ret = new MathsEnsemble<>(leHset);
