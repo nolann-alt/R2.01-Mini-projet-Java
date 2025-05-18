@@ -1,3 +1,4 @@
+import Couple.MathsCouple;
 import Ensemble.Ensemble;
 import Ensemble.MathsEnsemble;
 
@@ -45,7 +46,7 @@ public class Recette {
         MathsEnsemble<Integer> ensemble1 = new MathsEnsemble<>(elements);
         System.out.println(ensemble1.toString());
 
-        // test méthode union
+        // test méthode union, intersection, produit cartesien, difference
         System.out.println("ensemble.union(ensemble1) = \t" + ensemble.union(ensemble1));
         System.out.println("ensemble.intersection(ensemble1) = \t" + ensemble.intersection(ensemble1));
         System.out.println("ensemble.produitCartesien(ensemble1) = \t" + ensemble.produitCartesien(ensemble1));
@@ -83,5 +84,25 @@ public class Recette {
         System.out.println("ensemble1.produitCartesien(ensemble2) = \t" + ens1.produitCartesien(ens2));
         System.out.println("ensemble1.difference(ensemble2) = \t" + ens1.difference(ens2));
         System.out.println("ensemble2.difference(ensemble1) = \t" + ens2.difference(ens1));
+
+
+        // TEST DE MATHSCOUPLE()
+        System.out.println("********* TEST DE MATHSCOUPLE()");
+        MathsCouple<String> cpl1 = new MathsCouple<>("rouge", "orange");
+        MathsCouple<String> cpl2 = new MathsCouple<>("rouge", "jaune");
+        MathsCouple<String> cpl3 = new MathsCouple<>("orange", "rouge");
+        MathsCouple<String> cpl4 = new MathsCouple<>("rouge", "orange");
+
+        System.out.println(cpl1.toString());
+        System.out.println("cpl1.getPremier() : \t" + cpl1.getPremier());
+        System.out.println("cpl1.getDeuxieme() : \t" + cpl1.getDeuxieme());
+        System.out.println("Tests égalité : ");
+        System.out.println("cpl1 = " + cpl1.toString());
+        System.out.println("cpl2 = " + cpl2.toString());
+        System.out.println("cpl3 = " + cpl3.toString());
+        System.out.println("cpl4 = " + cpl4.toString());
+        System.out.println("cpl1.equals(cpl2) : \t" + cpl1.equals(cpl2));
+        System.out.println("cpl1.equals(cpl3) : \t" + cpl1.equals(cpl3));
+        System.out.println("cpl1.equals(cpl4) : \t" + cpl1.equals(cpl4));
     }
 }

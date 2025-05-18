@@ -51,9 +51,20 @@ public class MathsCouple<T> implements Couple<T> {
      */
     public boolean equals(MathsCouple<T> otherCpl) {
         boolean ret = false;
-        if (this.hashCode() == otherCpl.hashCode()) {
+        // Vérifie si c’est le même objet
+        if (this == otherCpl) {
+            ret = true;
+        } else if (otherCpl == null || this == null) {
+            ret = false;
+        }
+
+        MathsCouple autre = (MathsCouple) otherCpl;
+
+        // Compare les deux premiers et les deux deuxièmes éléments de chaque couples
+        if (this.getPremier().equals(autre.getPremier()) && this.getDeuxieme().equals(autre.getDeuxieme())) {
             ret = true;
         }
+
         return ret;
     }
 
@@ -72,7 +83,10 @@ public class MathsCouple<T> implements Couple<T> {
      * @return hashcode of the pair
      */
     @Override
-    public int hash() {
-        return this.hashCode();
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + (this.getPremier() != null ? this.getPremier().hashCode() : 0);
+        result = 31 * result + (this.getDeuxieme() != null ? this.getDeuxieme().hashCode() : 0);
+        return result;
     }
 }
