@@ -21,16 +21,16 @@ public class MathsEnsemble<T> implements Ensemble<T> {
      * @param elements the elements to add to the set
      */
     public MathsEnsemble(Collection<T> elements) {
-        ens = new LinkedHashSet<>();
+        if (elements == null) {
+            throw new NullPointerException("Les elements ne doivent pas être null !");
+        }
 
-        try {
-            for (T elt : elements) {
-                ens.add(elt);
+        this.ens = new LinkedHashSet<>();
+        for (T elt : elements) {
+            if (elt == null) {
+                throw new IllegalArgumentException("Les ensembles ne peuvent pas contenir des éléments null !");
             }
-        } catch (NullPointerException err) {
-            System.out.printf(err.getMessage());
-        } catch (IllegalArgumentException err) {
-            System.out.println(err.getMessage());
+            this.ens.add(elt);
         }
     }
 
@@ -52,7 +52,6 @@ public class MathsEnsemble<T> implements Ensemble<T> {
     public boolean contient(T element) {
         return this.ens.contains(element);
     }
-
 
     @Override
     /**

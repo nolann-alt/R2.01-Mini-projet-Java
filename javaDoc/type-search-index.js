@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"Couple","l":"Couple"},{"p":"Ensemble","l":"Ensemble"},{"p":"Couple","l":"MathsCouple"},{"p":"Ensemble","l":"MathsEnsemble"},{"p":"RelationBinaire","l":"MathsRelation"},{"p":"test","l":"Recette"},{"p":"RelationBinaire","l":"Relation"}];updateSearchResults();

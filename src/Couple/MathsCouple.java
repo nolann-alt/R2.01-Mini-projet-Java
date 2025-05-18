@@ -2,8 +2,7 @@ package Couple;
 
 /**
  * Class which simulate the pair behaviors in mathematics
- * @param <T> frist object
- * @param <T> second object
+ * @param <T> frist object of the pair and second object of the pair
  */
 public class MathsCouple<T> implements Couple<T> {
 
@@ -11,6 +10,9 @@ public class MathsCouple<T> implements Couple<T> {
      * members of the pair --> final because there are immutable
      */
     private final T gauche;
+    /**
+     * members of the pair --> final because there are immutable
+     */
     private final T droite;
 
     /**
@@ -49,13 +51,15 @@ public class MathsCouple<T> implements Couple<T> {
      * @param otherCpl other pair to test
      * @return true if the twice are the same, false otherwise
      */
-    public boolean equals(MathsCouple<T> otherCpl) {
+    public boolean equals(Object otherCpl) {
         boolean ret = false;
         // Vérifie si c’est le même objet
         if (this == otherCpl) {
             ret = true;
-        } else if (otherCpl == null || this == null) {
+        } else if (otherCpl == null) {
             ret = false;
+        } else if (!(otherCpl instanceof MathsCouple)) {
+            ret =  false; // ce n'est pas un MathsCouple, donc pas égal
         }
 
         MathsCouple autre = (MathsCouple) otherCpl;
@@ -74,7 +78,7 @@ public class MathsCouple<T> implements Couple<T> {
      */
     @Override
     public String toString() {
-        String display = "(" + this.getPremier() + ", " + this.getDeuxieme() + ")";
+        String display = "Le couple : " + "(" + this.getPremier() + ", " + this.getDeuxieme() + ")";
         return display;
     }
 
@@ -84,7 +88,7 @@ public class MathsCouple<T> implements Couple<T> {
      */
     @Override
     public int hashCode() {
-        int result = 17;
+        int result = 17; // nombre premier pour réduire le risque de collision dans la table de hachage
         result = 31 * result + (this.getPremier() != null ? this.getPremier().hashCode() : 0);
         result = 31 * result + (this.getDeuxieme() != null ? this.getDeuxieme().hashCode() : 0);
         return result;
