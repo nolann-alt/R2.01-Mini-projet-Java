@@ -48,6 +48,14 @@ public interface Ensemble<T> {
     public abstract Ensemble<T> difference(Ensemble<T> autre);
 
     /**
+     * This method returns the symmetric difference of the set with another set.
+     * It creates a new set that contains only the elements that are in either set but not in both.
+     * @param autre the other set to symmetric difference with
+     * @return the symmetric difference of the two sets
+     */
+    public abstract Ensemble<T> diffSymetrique(Ensemble<T> autre);
+
+    /**
      * This method returns the Cartesian product of the set with another set.
      * It creates a new set that contains all the pairs of elements from both sets.
      * @param autre the other set to product with

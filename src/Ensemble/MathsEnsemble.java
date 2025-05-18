@@ -110,6 +110,30 @@ public class MathsEnsemble<T> implements Ensemble<T> {
 
     @Override
     /**
+     * This method returns the symmetric difference of the set with another set.
+     * It creates a new set that contains only the elements that are in either set but not in both.
+     * @param autre the other set to symmetric difference with
+     * @return a new set that contains only the elements that are in either set but not in both
+     */
+    public Ensemble<T> diffSymetrique(Ensemble<T> autre) {
+        LinkedHashSet<T> leHset = new LinkedHashSet<>();
+        MathsEnsemble<T> autreEnsemble = (MathsEnsemble<T>) autre;
+        for (T elt : this.ens) {
+            if ( !autreEnsemble.contient(elt)) {
+                leHset.add(elt);
+            }
+        }
+        for (T elt : autreEnsemble.ens) {
+            if ( !this.contient(elt)) {
+                leHset.add(elt);
+            }
+        }
+        Ensemble<T> ret = new MathsEnsemble<>(leHset);
+        return ret;
+    }
+
+    @Override
+    /**
      * This method returns the Cartesian product of the set with another set.
      * It creates a new set that contains all the pairs of elements from both sets.
      * @param autre the other set to product with

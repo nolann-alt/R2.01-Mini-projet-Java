@@ -108,6 +108,8 @@ public class Recette {
         System.out.println("ensemble1.produitCartesien(ensemble2) = \t" + ens1.produitCartesien(ens2));
         System.out.println("ensemble1.difference(ensemble2) = \t" + ens1.difference(ens2));
         System.out.println("ensemble2.difference(ensemble1) = \t" + ens2.difference(ens1));
+        System.out.println("ensemble1.diffSymetrique(ensemble2) = \t" + ens1.diffSymetrique(ens2));
+        System.out.println("ensemble2.diffSymetrique(ensemble1) = \t" + ens2.diffSymetrique(ens1));
 
         System.out.println();
 

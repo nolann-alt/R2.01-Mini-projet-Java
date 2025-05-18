@@ -21,10 +21,10 @@ public interface Couple<T> {
 
     /**
      * This method checks if the couple is equal to another couple
-     * @param o the other couple to compare to
+     * @param otherCpl the other couple to compare to
      * @return true if the couples are equal, false otherwise
      */
-    public abstract boolean equals(Object o);
+    public abstract boolean equals(Object otherCpl);
 
     /**
      * This method returns a string representation of the couple
